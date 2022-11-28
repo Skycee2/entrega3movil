@@ -13,7 +13,7 @@ export class ApiService {
   //metodo para crear una peticion.
 
   async get() {
-    return await this.http.get('https://marvelstefan-skliarovv1.p.rapidapi.com/getCharacters');
+    return await this.http.get('https://rickandmortyapi.com/api/character');
 }
 
 }

@@ -1,10 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title slot="start" class="titulo-admin ">Inicio</ion-title>
-    <ion-button color="warning" slot="end" routerLink="/login"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+    <ion-button color="warning" slot="end" (click)="presentAlert()" routerLink="/login"><ion-icon name="log-out-outline"></ion-icon></ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div id="container">
+    <ion-img src="../../../assets/imagen/san-joaquin.jpg"> </ion-img>
+
+  </div>
+  
 
 </ion-content>

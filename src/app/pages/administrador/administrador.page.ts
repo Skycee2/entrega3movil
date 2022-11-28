@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { LoadingController } from '@ionic/angular';
 import { ValidacionesService } from 'src/app/services/validaciones.service';
-
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-administrador',
@@ -18,7 +18,7 @@ export class AdministradorPage implements OnInit {
     tipo_usu: 'alumno'
   },
   {
-    tipo_usu: 'docente'
+    tipo_usu: 'profesor'
   },
   {
     tipo_usu: 'administrador'
@@ -38,17 +38,30 @@ export class AdministradorPage implements OnInit {
   verificar_password: string;
   //VAMOS A CREAR UNA VARIABLE PARA OBTENER LA LISTA DE USUARIOS DEL SERVICIO DE USUARIOS:
   usuarios: any[] = [];
-  KEY_USUARIOS = 'usuarios';
+  /* KEY_USUARIOS = 'usuarios'; */
 
 
-  constructor(private usuarioService: UsuarioService, private validacionesService: ValidacionesService, private loadingController: LoadingController) { }
+  constructor(private alertController: AlertController,/* private usuarioService: UsuarioService */ private validacionesService: ValidacionesService, private loadingController: LoadingController) { }
 
-  async ngOnInit() {
-    await this.cargarDatos();
+  ngOnInit() {
+    
+  }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Cerraste sesión',
+      message: '',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
+  /* async ngOnInit() {
+    await this.cargarDatos();
+  } */
+
   //Métodos para poder usar storage
-  async cargarDatos() {
+  /* async cargarDatos() {
     this.usuarios = await this.usuarioService.getUsuarios(this.KEY_USUARIOS);
   }
 
@@ -83,26 +96,27 @@ export class AdministradorPage implements OnInit {
     alert('Usuario registrado!');
     this.usuario.reset();
     this.verificar_password = '';
-  }
+  } */
 
-  async eliminar(rut) {
+  /* async eliminar(rut) {
     await this.usuarioService.deleteUsuario(this.KEY_USUARIOS, rut);
     await this.cargandoPantalla('Eliminando,espere unos segundos')
     await this.cargarDatos();
-  }
+  } */
 
 
-  async buscar(rut) {
+  /* async buscar(rut) {
     this.usuarios = await this.usuarioService.getUsuario(this.KEY_USUARIOS, rut);
     /*this.usuarios.setValue(alumnoEncontrado);
-    this.verificar_password = alumnoEncontrado.password;*/
-  }
+    this.verificar_password = alumnoEncontrado.password;
+  }*/
+  
 
-  async modificar() {
+  /* async modificar() {
     await this.usuarioService.updateUsuario(this.KEY_USUARIOS, this.usuarios);
     //this.limpiar();
     this.cargarDatos();
-  }
+  } */
 
   /* limpiar(){
     this.usuarios.reset();
@@ -110,7 +124,7 @@ export class AdministradorPage implements OnInit {
   } */
 
   //cargando pantalla
-  async cargandoPantalla(message) {
+  /* async cargandoPantalla(message) {
     const cargando = await this.loadingController.create({
       message,
       duration: 3000,
@@ -118,6 +132,6 @@ export class AdministradorPage implements OnInit {
     });
 
     cargando.present();
-  }
+  } */
 
 }

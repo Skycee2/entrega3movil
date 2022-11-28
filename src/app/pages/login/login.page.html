@@ -6,24 +6,25 @@
         <img class="imagen_login" src="../../../assets/imagen/img-login.png " alt="imagen_login" width="100px"/>
 
         <ion-card-header>
-          <ion-card-subtitle>Iniciar sesión</ion-card-subtitle>
+
           <ion-card-title>Asistencia DUOCUC</ion-card-title>
         </ion-card-header>
 
         <ion-item >
-          <ion-label color="dark" class="text-login" position="stacked">Correo:</ion-label>
+          <ion-label color="dark" class="text-login" position="floating">Correo:</ion-label>
           <ion-input formControlName="correo" placeholder="Ingrese correo" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="dark" class="text-login" position="stacked">Contraseña:</ion-label>
-          <ion-input formControlName="password" placeholder="Ingrese contraseña" type="password"></ion-input>
+          <ion-label color="dark" class="text-login" position="floating">Contraseña:</ion-label>
+          <ion-input formControlName="contrasena" placeholder="Ingrese contraseña" type="password"></ion-input>
         </ion-item>
-        <ion-button type="submit" expand="full"  shape="round" [disabled]="!usuario.valid">
+        <ion-button type="submit" expand="full"  shape="round" (click)="presentAlert()" [disabled]="!usuario.valid">
           <ion-icon slot="end" name="log-in-outline"></ion-icon>
           Ingresar
         </ion-button>
         <ion-button  shape="round"  expand="full" routerLink="/registrar" color="warning">
+          <ion-icon name="person-add-outline" slot="end"></ion-icon>
           Registrar
         </ion-button>
         <ion-button  expand="full" shape="round" routerLink="/recuperar-pass">

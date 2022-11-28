@@ -1,7 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-title slot="start" class="titulo-admin ">Generar QR</ion-title>
-    <ion-button color="warning" slot="end" routerLink="/login">
+    <ion-button color="warning" slot="end" (click)="presentAlert()" routerLink="/login">
+      
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>

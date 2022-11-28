@@ -32,7 +32,7 @@
 
         <ion-item>
           <ion-label color="dark" position="stacked">Contraseña:</ion-label>
-          <ion-input type="password" placeholder="contrasena123" formControlName="password"></ion-input>
+          <ion-input type="password" placeholder="contrasena123" formControlName="contrasena"></ion-input>
         </ion-item>
 
         <ion-item >
@@ -41,9 +41,9 @@
             [ngModelOptions]="{standalone: 'true'}"></ion-input>
         </ion-item>
 
-        <ion-button  expand="full" color="warning" shape="round" type="submit">Registrar</ion-button>
+        <ion-button  expand="full" color="warning" shape="round" type="submit" (click)="presentAlert()"><ion-icon name="person-add-outline" slot="end"></ion-icon>Registrar</ion-button>
         <ion-button routerLink="/login" expand="block" shape="round" class="ion-margin-top">
-          <ion-icon name="home" slot="start"></ion-icon>
+          <ion-icon name="home" slot="end"></ion-icon>
           Volver
         </ion-button>
       </ion-card>

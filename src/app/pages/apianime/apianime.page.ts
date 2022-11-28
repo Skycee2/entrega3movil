@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-apianime',
   templateUrl: './apianime.page.html',
@@ -13,7 +13,7 @@ export class ApianimePage implements OnInit {
   cant_personajes: number = 0;
   personajes : any[] = [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,private alertController: AlertController) { }
 
   async ngOnInit() {
     await this.apiService.get();
@@ -27,6 +27,16 @@ export class ApianimePage implements OnInit {
       this.personajes = data.results;
 
     });
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Cerraste sesión',
+      message: '',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 
 }

@@ -15,15 +15,15 @@ export class RecuperarPassPage implements OnInit {
   correo: string;
 
   //Variables para trabajar el storage
-  KEY_USUARIOS = 'usuarios';
+  /* KEY_USUARIOS = 'usuarios'; */
 
-  constructor(private toastController: ToastController, private router:Router,private usuarioService: UsuarioService) { }
+  constructor(private toastController: ToastController, private router:Router,/* private usuarioService: UsuarioService */) { }
 
-  async ngOnInit() {
-    this.usuarios = await this.usuarioService.getUsuarios(this.KEY_USUARIOS);
+   ngOnInit() {
+    /* this.usuarios = await this.usuarioService.getUsuarios(this.KEY_USUARIOS); */
   }
 
-async recuperarContra(){
+/* async recuperarContra(){
   var validarCorreo = await this.usuarioService.validarCorreorpw(this.correo)
     if (validarCorreo != undefined) {
       if (validarCorreo.correo == this.correo) {
@@ -40,5 +40,5 @@ async recuperarContra(){
       duration: 3000
     });
     toast.present();
-  }
+  } */
 }

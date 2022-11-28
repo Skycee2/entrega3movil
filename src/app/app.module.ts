@@ -9,16 +9,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 
 //importar el modulo ed la libreria para realizar peticionesdel tipo HTTP
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire/compat';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+
+
+export function HttpLoaderFactory(httpCliente: HttpClient) {
+  return new TranslateHttpLoader(httpCliente, "../assets/i18n/",".json");
+}
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    IonicStorageModule.forRoot(),
-    HttpClientModule],
+  imports: [HttpClientModule, TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+    }
+  }),BrowserModule,AngularFireAuthModule ,IonicModule.forRoot(), AppRoutingModule
+    ,AngularFireModule.initializeApp(environment.firebaseConfig)
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

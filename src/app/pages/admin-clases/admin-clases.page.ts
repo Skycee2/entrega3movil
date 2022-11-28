@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
+import { Usuario } from 'src/app/interfaces/models';
 import { UsuarioService } from 'src/app/services/usuario.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-admin-clases',
   templateUrl: './admin-clases.page.html',
@@ -10,7 +11,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class AdminClasesPage implements OnInit {
 
-  //Asignatura predefinida
+  /* //Asignatura predefinida
   asigPredef: any;
 
   //Tipos de asignatura
@@ -44,7 +45,7 @@ export class AdminClasesPage implements OnInit {
   {
     escDuoc:'Formación cristiana'
   },
-  ];
+  ]; */
   
   //CRUD para crear una asignatura
 
@@ -57,17 +58,29 @@ export class AdminClasesPage implements OnInit {
   });
 
   asignaturas: any[] = [];
-  KEY_ASIGNATURAS = 'asignaturas';
-  usuarios: any[] = [];
-  KEY_USUARIOS = 'usuarios';
+  /* KEY_ASIGNATURAS = 'asignaturas'; */
+  /* usuarios: Usuario; */
+  /* KEY_USUARIOS = 'usuarios'; */
 
   //Variables validaciones
   valid_cod: string;
   
 
-  constructor(private usuarioService: UsuarioService, private loadingController: LoadingController) { }
+  constructor(private alertController: AlertController,/* private usuarioService: UsuarioService */ private loadingController: LoadingController) { }
 
-  async ngOnInit() {
+  ngOnInit() { 
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Cerraste sesión',
+      message: '',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  /* async ngOnInit() {
     await this.cargarAsignaturas();
     await this.asignarProfesor();
 
@@ -136,6 +149,6 @@ export class AdminClasesPage implements OnInit {
     });
 
     cargando.present();
-  }
+  } */
 
 }

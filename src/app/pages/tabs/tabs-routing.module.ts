@@ -40,6 +40,11 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
         /* canActivate: [AuthGuard] */
       },
+      {
+        path: 'apianime',
+        loadChildren: () => import('../apianime/apianime.module').then( m => m.ApianimePageModule)
+      },
+      
     ]
   }
 ];

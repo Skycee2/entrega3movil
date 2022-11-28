@@ -20,20 +20,18 @@ const routes: Routes = [
     path: 'registrar',
     loadChildren: () => import('./pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
   },
-  
+
   {
     path: 'recuperar-pass',
     loadChildren: () => import('./pages/recuperar-pass/recuperar-pass.module').then( m => m.RecuperarPassPageModule)
   },
-  {
-    path: 'apianime',
-    loadChildren: () => import('./pages/apianime/apianime.module').then( m => m.ApianimePageModule)
-  },
-  
+
   {
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
+
+
 
 
 ];

@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>API ANIME</ion-title>
+    <ion-button color="warning" slot="end" (click)="presentAlert()" routerLink="/login"></ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +14,7 @@
         <ion-img  src="{{personaje.image}}" > </ion-img>
       </ion-avatar>
       <ion-label>
-        {{ personaje.name }} - {{personaje.status}}
+        {{ personaje.name }} - {{ personaje.status }}
       </ion-label>
     </ion-item>
 
